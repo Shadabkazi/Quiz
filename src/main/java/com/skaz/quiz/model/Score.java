@@ -35,6 +35,7 @@ public class Score {
 	private int correctAnswer;
 	private int wrongAnswer;
 	private int totalQuestions;
+	private int noOfAttempts;
 	@NonNull
 	@OneToOne
 	private Quiz quiz;

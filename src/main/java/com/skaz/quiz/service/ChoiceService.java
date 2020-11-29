@@ -1,6 +1,7 @@
 package com.skaz.quiz.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class ChoiceService {
 		return choiceRepository.findAll();
 	}
 	
-	public Choice getChoiceById(Long id) {
-		return choiceRepository.getOne(id);
+	public Optional<Choice> getChoiceById(Long id) {
+		return choiceRepository.findById(id);
 	}
 	
 	public Choice saveChoice(Choice choice) {

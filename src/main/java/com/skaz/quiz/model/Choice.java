@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -30,7 +32,12 @@ public class Choice {
 	@NonNull
 	private String text;
 	private String image;
+	
+	// NonNull is required for Lombok's Required Constructor
+	@NonNull
 	private boolean answer;
-	@ManyToOne()
+	@NonNull
+	@ManyToOne
+	@JsonIgnore
 	private Question question;
 }

@@ -1,14 +1,12 @@
 package com.skaz.quiz.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -37,10 +35,7 @@ public class Category {
 	@NonNull
     private String description;
 	
-	@OneToMany(mappedBy="category")
-	private Set<Quiz> quiz;
-	
-	@ManyToOne()
-	@JoinColumn(name="category")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
 	private User createdBy;
 }

@@ -1,6 +1,7 @@
 package com.skaz.quiz.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class QuestionService {
 		return questionRepository.findAll();
 	}
 	
-	public Question getQuestionById(Long id) {
-		return questionRepository.getOne(id);
+	public Optional<Question> getQuestionById(Long id) {
+		return questionRepository.findById(id);
 	}
 	
 	public Question saveQuestion(Question question) {

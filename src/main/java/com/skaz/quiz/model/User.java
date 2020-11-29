@@ -62,7 +62,7 @@ public class User {
 	@OneToMany(mappedBy="createdBy", fetch = FetchType.LAZY)
 	private Set<Quiz> quiz;
 	@JsonIgnore
-	@OneToMany(mappedBy="createdBy", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="createdBy")
 	private Set<Category> category;
 	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL })
